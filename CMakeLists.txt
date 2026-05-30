@@ -1,26 +1,40 @@
 cmake_minimum_required(VERSION 3.16)
-project(ProxyLab VERSION 1.0 LANGUAGES CXX)
+project(ProxyLab VERSION 2.0 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
-find_package(Qt6 COMPONENTS Core Gui Widgets QUIET)
+# ── Try Qt6 first, fall back to Qt5.15 ─────────────────────────────────────
+find_package(Qt6 COMPONENTS Core Gui Widgets Network Sql QUIET)
 if(NOT Qt6_FOUND)
-    find_package(Qt5 5.15 COMPONENTS Core Gui Widgets REQUIRED)
+    find_package(Qt5 5.15 COMPONENTS Core Gui Widgets Network Sql REQUIRED)
 endif()
 
 add_executable(ProxyLab
     main.cpp
-    mainwindow.cpp
     mainwindow.h
+    mainwindow.cpp
+    httpparser.h
+    httpparser.cpp
+    trafficrecord.h
+    proxyconnection.h
+    proxyconnection.cpp
+    proxyserver.h
+    proxyserver.cpp
+    repeaterclient.h
+    repeaterclient.cpp
+    storagemanager.h
+    storagemanager.cpp
 )
 
 if(Qt6_FOUND)
-    target_link_libraries(ProxyLab PRIVATE Qt6::Core Qt6::Gui Qt6::Widgets)
+    target_link_libraries(ProxyLab PRIVATE
+        Qt6::Core Qt6::Gui Qt6::Widgets Qt6::Network Qt6::Sql)
 else()
-    target_link_libraries(ProxyLab PRIVATE Qt5::Core Qt5::Gui Qt5::Widgets)
+    target_link_libraries(ProxyLab PRIVATE
+        Qt5::Core Qt5::Gui Qt5::Widgets Qt5::Network Qt5::Sql)
 endif()
 
 if(WIN32)
