@@ -1,5 +1,8 @@
+// SPDX-License-Identifier: MIT
+// Encoding: UTF-8
 #include "mainwindow.h"
 #include <QApplication>
+#include <stdexcept>
 #include <QDateTime>
 #include <QStringList>
 #include <QHostAddress>
@@ -240,7 +243,12 @@ MainWindow::MainWindow(QWidget *parent)
     QString dbPath = QDir(QStandardPaths::writableLocation(
                               QStandardPaths::AppDataLocation)).filePath("proxylab.sqlite");
     QDir().mkpath(QFileInfo(dbPath).path());
-    m_storage->open(dbPath);
+    try {
+        m_storage->open(dbPath);
+    } catch (const std::exception& ex) {
+        // Non-fatal: the app can run without persistence
+        qWarning("StorageManager: %s", ex.what());
+    }
 
     // ── Proxy server ──
     m_server = new ProxyServer(this);
@@ -860,8 +868,9 @@ void MainWindow::onInterceptToggled(bool checked)
     } else {
         m_interceptStatus->setText("INTERCEPT: OFF");
         m_interceptStatus->setStyleSheet(
-            "color: #ff5252; font-weight: bold; font-size: 9pt; "
-            "background:#2a1b24; padding: 3px 10px; border-radius: 3px; border: 1px solid #ff5252;");
+            "color: #ef9a9a; font-weight: bold; font-size: 9pt; "
+            "background:#0d47a1; padding: 3px 10px; border-radius: 3px;");
+        statusBar()->showMessage("  Intercept disabled – passing traffic");
     }
 }
 
@@ -871,28 +880,34 @@ void MainWindow::onForwardClicked()
 
     QByteArray modified = m_rawRequest->toPlainText().toLatin1();
 
-    // Track forwarded ID to match its response; do NOT overwrite if another
-    // intercept is already pending (the previous await would be lost).
-    // We store the forwarded ID only when we are not already tracking one.
-    if (m_awaitingRespId < 0)
-        m_awaitingRespId = m_pendingConnId;
-    // If m_awaitingRespId is already set, the response for the previous request
-    // will simply be discarded (it won't match m_awaitingRespId for the new one).
-
+    // Always track the most-recently forwarded request so we can display its
+    // response. If a previous response is still in-flight it will simply not
+    // match m_awaitingRespId and be silently ignored in the log/history.
     int forwardedId  = m_pendingConnId;
+    m_awaitingRespId = forwardedId;
     m_pendingConnId  = -1;
 
-    m_server->forwardPendingRequest(modified);
-
-    // Keep the request visible; clear response area and wait
-    m_rawResponse->clear();
-    m_rawResponse->setPlaceholderText("Waiting for response…");
+    // Disable the action buttons now; onRequestIntercepted will re-enable them
+    // immediately if the server promotes a queued request synchronously.
     m_forwardBtn->setEnabled(false);
     m_dropBtn->setEnabled(false);
     m_sendRepeaterBtn->setEnabled(false);
 
-    statusBar()->showMessage(
-        QString("  Request #%1 forwarded — waiting for response…").arg(forwardedId));
+    // Clear response area while we wait
+    m_rawResponse->clear();
+    m_rawResponse->setPlaceholderText("Waiting for response…");
+
+    // This may call promoteNext() → emit requestIntercepted() synchronously,
+    // which will call onRequestIntercepted() and re-enable the buttons before
+    // we return — that is correct and expected.
+    m_server->forwardPendingRequest(modified);
+
+    // If no new request was promoted the status bar shows "waiting"; if one was
+    // promoted onRequestIntercepted() already updated it.
+    if (m_pendingConnId < 0) {
+        statusBar()->showMessage(
+            QString("  Request #%1 forwarded — waiting for response…").arg(forwardedId));
+    }
 }
 
 void MainWindow::onDropClicked()
@@ -1128,9 +1143,15 @@ void MainWindow::onRequestFinished(TrafficRecord record)
         m_rawResponse->setPlainText(record.rawResponse);
         m_awaitingRespId = -1;
 
-        // If no new intercept has taken over the panel yet, re-enable Send to Repeater
-        if (m_pendingConnId < 0)
+        // If a new intercept has already taken over the panel, leave buttons
+        // as onRequestIntercepted set them. Otherwise we are idle — re-enable
+        // "Send to Repeater" so the user can push the response to Repeater.
+        if (m_pendingConnId < 0) {
             m_sendRepeaterBtn->setEnabled(true);
+            // Forward/Drop stay disabled — there is nothing pending to act on.
+            m_forwardBtn->setEnabled(false);
+            m_dropBtn->setEnabled(false);
+        }
 
         statusBar()->showMessage(
             QString("  ✓  Response received  (conn #%1)  %2 bytes  status %3")

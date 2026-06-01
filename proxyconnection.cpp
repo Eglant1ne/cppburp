@@ -1,6 +1,9 @@
+// SPDX-License-Identifier: MIT
+// Encoding: UTF-8
 #include "proxyconnection.h"
 #include <QSslSocket>
 #include <QHostAddress>
+#include <stdexcept>
 
 int ProxyConnection::s_idCounter = 0;
 
@@ -43,8 +46,14 @@ void ProxyConnection::onClientData()
 
     // Try to parse HTTP header
     if (!m_requestParsed) {
-        if (!HttpParser::parse(m_clientBuffer, m_parsedRequest))
-            return;  // need more data
+        try {
+            if (!HttpParser::parse(m_clientBuffer, m_parsedRequest))
+                return;  // need more data
+        } catch (const std::invalid_argument& ex) {
+            qWarning("ProxyConnection: bad request — %s", ex.what());
+            dropConnection();
+            return;
+        }
         m_requestParsed = true;
     }
 
@@ -264,12 +273,15 @@ void ProxyConnection::forwardRequest(const QByteArray &modifiedRequest)
     m_clientBuffer = req;
 
     // Re-parse to get up-to-date host/port from the edited request.
-    // NOTE: parse() reads the original URL (still absolute at parse time
-    // since we normalise above); that's fine — host/port extraction works
-    // off the Host header, not the request-line URL.
     HttpRequest parsed;
-    if (HttpParser::parse(req, parsed))
-        m_parsedRequest = parsed;
+    try {
+        if (HttpParser::parse(req, parsed))
+            m_parsedRequest = parsed;
+    } catch (const std::invalid_argument& ex) {
+        qWarning("ProxyConnection::forwardRequest — bad request: %s", ex.what());
+        dropConnection();
+        return;
+    }
 
     // Destroy any previous target socket so we don't leak/double-connect
     if (m_targetSocket) {
@@ -282,6 +294,29 @@ void ProxyConnection::forwardRequest(const QByteArray &modifiedRequest)
     connectToTarget(m_parsedRequest.host, m_parsedRequest.port, m_parsedRequest.isTls);
 }
 
+void ProxyConnection::releaseIfHeld()
+{
+    // A connection is "held" when intercept fired but the user has not yet
+    // forwarded or dropped it.  m_clientBuffer still holds the original raw
+    // request at that point and no target socket has been created yet.
+    if (m_targetSocket || m_tunnelMode || !m_requestParsed)
+        return;  // already connecting/connected, or nothing parsed yet
+
+    // Forward using the bytes we already have
+    connectToTarget(m_parsedRequest.host, m_parsedRequest.port, m_parsedRequest.isTls);
+}
+
+
+void ProxyConnection::dropConnection()
+{
+    if (m_clientSocket && m_clientSocket->isOpen()) {
+        m_clientSocket->write(
+            "HTTP/1.1 403 Forbidden\r\nContent-Length: 0\r\nConnection: close\r\n\r\n");
+        m_clientSocket->disconnectFromHost();
+    }
+    emit done(m_id);
+    deleteLater();
+}
 void ProxyConnection::dropRequest()
 {
     if (m_clientSocket && m_clientSocket->isOpen()) {
@@ -292,7 +327,6 @@ void ProxyConnection::dropRequest()
     emit done(m_id);
     deleteLater();
 }
-
 void ProxyConnection::startTunnel()
 {
     m_tunnelMode = true;

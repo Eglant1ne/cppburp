@@ -1,7 +1,10 @@
+// SPDX-License-Identifier: MIT
+// Encoding: UTF-8
 #include "httpparser.h"
 #include <QStringList>
+#include <stdexcept>
 
-bool HttpParser::parse(const QByteArray &data, HttpRequest &out)
+bool HttpParser::parse(const QByteArray& data, HttpRequest& out)
 {
     out.raw = data;
 
@@ -18,10 +21,12 @@ bool HttpParser::parse(const QByteArray &data, HttpRequest &out)
     // Request line
     QString requestLine = QString::fromLatin1(lines[0]).trimmed();
     QStringList parts = requestLine.split(' ');
-    if (parts.size() < 3) return false;
+    if (parts.size() < 3)
+        throw std::invalid_argument(
+            "Malformed HTTP request line: fewer than three tokens");
 
-    out.method  = parts[0].toUpper();
-    out.url     = parts[1];
+    out.method = parts[0].toUpper();
+    out.url = parts[1];
     out.version = parts[2];
     out.isConnect = (out.method == "CONNECT");
 
@@ -30,7 +35,7 @@ bool HttpParser::parse(const QByteArray &data, HttpRequest &out)
         QString line = QString::fromLatin1(lines[i]).trimmed();
         int colonIdx = line.indexOf(':');
         if (colonIdx < 0) continue;
-        QString key   = line.left(colonIdx).trimmed().toLower();
+        QString key = line.left(colonIdx).trimmed().toLower();
         QString value = line.mid(colonIdx + 1).trimmed();
         out.headers[key] = value;
     }
@@ -42,7 +47,6 @@ bool HttpParser::parse(const QByteArray &data, HttpRequest &out)
         splitHostPort(out.url, out.host, out.port, /*isTls=*/true);
         out.isTls = true;
     } else if (!hostHeader.isEmpty()) {
-        // Default port based on scheme in URL
         bool defaultTls = out.url.startsWith("https://");
         splitHostPort(hostHeader, out.host, out.port, defaultTls);
         out.isTls = defaultTls;
@@ -51,12 +55,16 @@ bool HttpParser::parse(const QByteArray &data, HttpRequest &out)
     return true;
 }
 
-void HttpParser::splitHostPort(const QString &hostPort, QString &host, int &port, bool isTls)
+void HttpParser::splitHostPort(const QString& hostPort, QString& host, int& port, bool isTls)
 {
-    // Handle IPv6  [::1]:8080
+    // Handle IPv6 [::1]:8080
     if (hostPort.startsWith('[')) {
         int closeBracket = hostPort.indexOf(']');
-        if (closeBracket < 0) { host = hostPort; port = isTls ? 443 : 80; return; }
+        if (closeBracket < 0) {
+            host = hostPort;
+            port = isTls ? 443 : 80;
+            return;
+        }
         host = hostPort.mid(1, closeBracket - 1);
         QString rest = hostPort.mid(closeBracket + 1);
         if (rest.startsWith(':'))

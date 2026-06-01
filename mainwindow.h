@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Encoding: UTF-8
 #pragma once
 
 #include <QMainWindow>
