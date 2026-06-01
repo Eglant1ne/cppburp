@@ -1,6 +1,7 @@
 #include "repeaterclient.h"
 #include <QSslSocket>
 
+
 RepeaterClient::RepeaterClient(QObject *parent)
     : QObject(parent)
 {
@@ -14,14 +15,10 @@ RepeaterClient::~RepeaterClient()
     hardReset();
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-//  Public API
-// ─────────────────────────────────────────────────────────────────────────────
 
-void RepeaterClient::send(const QByteArray &rawRequest,
-                           const QString &host, int port, bool useSsl)
+void RepeaterClient::send(const QByteArray &rawRequest, const QString &host, int port, bool useSsl)
 {
-    hardReset();   // kill any previous socket / timers cleanly
+    hardReset();
 
     m_request  = rawRequest;
     m_response.clear();
@@ -40,50 +37,42 @@ void RepeaterClient::send(const QByteArray &rawRequest,
         connect(m_socket, &QTcpSocket::connected, this, &RepeaterClient::onConnected);
     }
 
-    connect(m_socket, &QTcpSocket::readyRead, this, &RepeaterClient::onReadyRead);
+    connect(m_socket, &QTcpSocket::readyRead,    this, &RepeaterClient::onReadyRead);
     connect(m_socket, &QTcpSocket::disconnected, this, &RepeaterClient::onDisconnected);
-    connect(m_socket,
-            QOverload<QAbstractSocket::SocketError>::of(&QTcpSocket::errorOccurred),
+    connect(m_socket, QOverload<QAbstractSocket::SocketError>::of(&QTcpSocket::errorOccurred),
             this, &RepeaterClient::onSocketError);
 
     m_overallTimer->start(20000);
 
-    if (useSsl)
+    if (useSsl) {
         qobject_cast<QSslSocket*>(m_socket)->connectToHostEncrypted(host, static_cast<quint16>(port));
-    else
+    } else {
         m_socket->connectToHost(host, static_cast<quint16>(port));
+    }
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-//  Internal helpers
-// ─────────────────────────────────────────────────────────────────────────────
 
 void RepeaterClient::doSend()
 {
     QByteArray req = m_request;
 
-    // 1. Нормализация переносов строк (ОЧЕНЬ ВАЖНО для HTTP)
-    // QPlainTextEdit отдает \n, а стандарт HTTP требует \r\n
-    req.replace("\r\n", "\n"); // Убираем старые \r\n, чтобы не задвоить
-    req.replace("\n", "\r\n"); // Делаем все переносы по стандарту
+    req.replace("\r\n", "\n"); 
+    req.replace("\n", "\r\n"); 
 
-    // Убеждаемся, что пустая строка (окончание заголовков) вообще есть
     if (!req.contains("\r\n\r\n")) {
         if (!req.endsWith("\r\n")) req.append("\r\n");
         req.append("\r\n");
     }
 
-    // 2. Разделяем запрос на заголовки и тело для безопасной модификации
     int blankIdx = req.indexOf("\r\n\r\n");
     QByteArray hdrs = req.left(blankIdx);
     QByteArray body = req.mid(blankIdx + 4);
 
     QByteArray lowerHdrs = hdrs.toLower();
 
-    // 3. Форсируем Connection: close
     int connIdx = lowerHdrs.indexOf("\nconnection:");
     if (connIdx >= 0) {
-        connIdx++; // сдвигаемся на начало слова 'c'
+        connIdx++; 
         int lineEnd = hdrs.indexOf("\r\n", connIdx);
         if (lineEnd >= 0) {
             hdrs.replace(connIdx, lineEnd - connIdx, "Connection: close");
@@ -92,9 +81,7 @@ void RepeaterClient::doSend()
         hdrs.append("\r\nConnection: close");
     }
 
-    // 4. Авто-пересчет Content-Length
-    // Если ты стер пару символов в теле через UI, сервер больше не будет висеть в ожидании
-    lowerHdrs = hdrs.toLower(); // Обновляем после возможной вставки Connection
+    lowerHdrs = hdrs.toLower(); 
     int clIdx = lowerHdrs.indexOf("\ncontent-length:");
     if (clIdx >= 0) {
         clIdx++;
@@ -104,13 +91,12 @@ void RepeaterClient::doSend()
         }
     }
 
-    // Собираем идеальный HTTP-запрос обратно
     req = hdrs + "\r\n\r\n" + body;
 
-    // Отправляем и проталкиваем буфер
     m_socket->write(req);
     m_socket->flush();
 }
+
 void RepeaterClient::finish()
 {
     if (m_finished) return;
@@ -118,13 +104,12 @@ void RepeaterClient::finish()
 
     m_overallTimer->stop();
 
-    // Drain any remaining bytes before killing the socket
-    if (m_socket)
+    if (m_socket) {
         m_response += m_socket->readAll();
+    }
 
     QByteArray resp = m_response;
 
-    // Destroy socket cleanly without triggering more signals
     if (m_socket) {
         m_socket->disconnect(this);
         m_socket->abort();
@@ -138,7 +123,7 @@ void RepeaterClient::finish()
 void RepeaterClient::hardReset()
 {
     m_overallTimer->stop();
-    m_finished = true;   // prevent any in-flight slot from emitting
+    m_finished = true;   
 
     if (m_socket) {
         m_socket->disconnect(this);
@@ -148,9 +133,6 @@ void RepeaterClient::hardReset()
     }
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-//  Slots
-// ─────────────────────────────────────────────────────────────────────────────
 
 void RepeaterClient::onConnected()    { doSend(); }
 void RepeaterClient::onSslConnected() { doSend(); }
@@ -160,46 +142,45 @@ void RepeaterClient::onReadyRead()
     if (!m_socket) return;
     m_response += m_socket->readAll();
 
-    // Try to detect end of response via Content-Length
     int headerEnd = m_response.indexOf("\r\n\r\n");
     if (headerEnd < 0) return;
 
     QByteArray hdrs = m_response.left(headerEnd).toLower();
 
-    // Chunked: wait for terminal chunk
     if (hdrs.contains("transfer-encoding: chunked")) {
-        // Улучшенная проверка конца чанка
-        if (m_response.endsWith("0\r\n\r\n"))
+        if (m_response.endsWith("0\r\n\r\n")) {
             finish();
-        return;
-    }
-
-    // Content-Length
-    int clPos = hdrs.indexOf("content-length:");
-    if (clPos >= 0) {
-        int eol = hdrs.indexOf('\n', clPos);
-        bool ok = false;
-        int cl = hdrs.mid(clPos + 15, eol - clPos - 15).trimmed().toInt(&ok);
-        if (ok) {
-            int bodyReceived = m_response.size() - (headerEnd + 4);
-            if (bodyReceived >= cl)
-                finish();
         }
         return;
     }
 
-    // Unknown length — rely on disconnect
+    int clPos = hdrs.indexOf("content-length:");
+    if (clPos >= 0) {
+        int eol = hdrs.indexOf('\n', clPos);
+        if (eol > clPos) {
+            QByteArray clLine = hdrs.mid(clPos, eol - clPos);
+            QByteArray clValue = clLine.mid(15).trimmed(); 
+            
+            bool ok = false;
+            int cl = clValue.toInt(&ok);
+            if (ok) {
+                int bodyReceived = m_response.size() - (headerEnd + 4);
+                if (bodyReceived >= cl) {
+                    finish();
+                }
+            }
+        }
+        return;
+    }
 }
 
 void RepeaterClient::onDisconnected()
 {
-    // Server closed the connection — whatever is buffered is the full response
     finish();
 }
 
 void RepeaterClient::onSocketError(QAbstractSocket::SocketError err)
 {
-    // RemoteHostClosedError fires before disconnected on many platforms
     if (err == QAbstractSocket::RemoteHostClosedError) {
         finish();
         return;
@@ -209,7 +190,8 @@ void RepeaterClient::onSocketError(QAbstractSocket::SocketError err)
     m_finished = true;
     m_overallTimer->stop();
 
-    QString msg = m_socket ? m_socket->errorString() : "socket error";
+    QString msg = m_socket ? m_socket->errorString() : "Socket error";
+    
     if (m_socket) {
         m_socket->disconnect(this);
         m_socket->abort();
@@ -222,9 +204,9 @@ void RepeaterClient::onSocketError(QAbstractSocket::SocketError err)
 void RepeaterClient::onOverallTimeout()
 {
     if (m_finished) return;
-    if (!m_response.isEmpty())
-        finish();   // return partial response
-    else {
+    if (!m_response.isEmpty()) {
+        finish();
+    } else {
         m_finished = true;
         hardReset();
         emit errorOccurred("Timed out — no response in 20 s");
