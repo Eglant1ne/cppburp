@@ -8,113 +8,147 @@
 #include <QDir>
 
 // ──────────────────────────────────────────────────────────────────────────────
-//  Stylesheet  (white / blue palette — identical to original)
+//  Stylesheet  (Cyberpunk Dark / Crimson palette)
 // ──────────────────────────────────────────────────────────────────────────────
 static const char *STYLESHEET = R"(
 QMainWindow, QWidget {
-    background-color: #f0f4fa;
-    color: #1a2a3a;
-    font-family: "Segoe UI";
+    background-color: #121214;       /* Глубокий чёрный/угольный фон */
+    color: #e0e0e6;                  /* Светло-серый текст для отличной читаемости */
+    font-family: "Segoe UI", "Arial";
     font-size: 9pt;
 }
 QMenuBar {
-    background-color: #1565c0;
-    color: #ffffff;
+    background-color: #1a1a1f;       /* Чуть светлее основного фона */
+    color: #e0e0e6;
     padding: 2px 4px;
     font-size: 9pt;
+    border-bottom: 1px solid #2a1b24; /* Едва заметная малиновая граница */
 }
-QMenuBar::item:selected { background-color: #1976d2; border-radius: 3px; }
-QMenu { background-color: #ffffff; border: 1px solid #90caf9; color: #1a2a3a; }
-QMenu::item:selected { background-color: #e3f2fd; }
+QMenuBar::item:selected { 
+    background-color: #dc143c;       /* Малиновый (Crimson) при наведении */
+    color: #ffffff; 
+    border-radius: 3px; 
+}
+QMenu { 
+    background-color: #1a1a1f; 
+    border: 1px solid #dc143c;       /* Яркая малиновая рамка меню */
+    color: #e0e0e6; 
+}
+QMenu::item:selected { 
+    background-color: #2a1b24;       /* Тёмно-малиновый фон при выборе */
+    color: #ff4081;                  /* Неоново-розовый текст */
+}
 
 QTabWidget::pane {
-    border: 1px solid #90caf9;
+    border: 1px solid #3a2533;       /* Приглушенная малиново-бордовая рамка */
     border-top: none;
-    background: #ffffff;
+    background: #16161a;
     border-radius: 0 0 4px 4px;
 }
 QTabBar::tab {
-    background: #dce8f8;
-    color: #1a2a3a;
+    background: #1a1a1f;
+    color: #a0a0a8;
     padding: 6px 18px;
-    border: 1px solid #90caf9;
+    border: 1px solid #2a1b24;
     border-bottom: none;
     margin-right: 2px;
     border-radius: 4px 4px 0 0;
     font-size: 9pt;
 }
-QTabBar::tab:selected { background: #1565c0; color: #ffffff; font-weight: bold; }
-QTabBar::tab:hover:!selected { background: #bbdefb; }
+QTabBar::tab:selected { 
+    background: #dc143c;             /* Активная вкладка горит малиновым */
+    color: #ffffff; 
+    font-weight: bold; 
+    border-color: #dc143c;
+}
+QTabBar::tab:hover:!selected { 
+    background: #2a1b24; 
+    color: #ff4081; 
+}
 
 QPushButton {
-    background-color: #1565c0;
-    color: #ffffff;
-    border: 1px solid #0d47a1;
+    background-color: #2a1b24;       /* Тёмная кнопка с малиновым оттенком */
+    color: #ff4081;                  /* Неоновый текст */
+    border: 1px solid #dc143c;       /* Малиновая рамка */
     padding: 5px 16px;
     border-radius: 4px;
     font-size: 9pt;
+    font-weight: bold;
 }
-QPushButton:hover  { background-color: #1976d2; border-color: #1565c0; }
+QPushButton:hover  { 
+    background-color: #dc143c;       /* Заливка малиновым при наведении */
+    color: #ffffff; 
+}
 QPushButton:pressed {
-    background-color: #0d47a1;
-    border-color: #0a2e6e;
+    background-color: #a30f2e;       /* Более тёмный красный при клике */
+    border-color: #a30f2e;
     padding: 6px 15px 4px 17px;
 }
-QPushButton:disabled { background-color: #90caf9; color: #e3f2fd; border-color: #78b4f0; }
-QPushButton#dangerBtn  { background-color: #c62828; border-color: #8e0000; }
-QPushButton#dangerBtn:hover { background-color: #e53935; border-color: #b71c1c; }
-QPushButton#dangerBtn:pressed { background-color: #8e0000; border-color: #6a0000; padding: 6px 15px 4px 17px; }
-QPushButton#successBtn { background-color: #2e7d32; border-color: #1b5e20; }
-QPushButton#successBtn:hover { background-color: #388e3c; border-color: #2e7d32; }
-QPushButton#successBtn:pressed { background-color: #1b5e20; border-color: #144018; padding: 6px 15px 4px 17px; }
-QPushButton#warnBtn    { background-color: #e65100; border-color: #bf360c; }
-QPushButton#warnBtn:hover { background-color: #ef6c00; border-color: #e65100; }
-QPushButton#warnBtn:pressed { background-color: #bf360c; border-color: #9a2a00; padding: 6px 15px 4px 17px; }
+QPushButton:disabled { 
+    background-color: #16161a; 
+    color: #4a4a52; 
+    border-color: #2a2a30; 
+}
 
-QCheckBox { spacing: 6px; }
+/* Специфические кнопки действий */
+QPushButton#dangerBtn  { background-color: #5c0612; color: #ff5252; border-color: #ff5252; }
+QPushButton#dangerBtn:hover { background-color: #ff5252; color: #ffffff; }
+QPushButton#dangerBtn:pressed { background-color: #b71c1c; padding: 6px 15px 4px 17px; }
+
+QPushButton#successBtn { background-color: #0b3010; color: #4caf50; border-color: #4caf50; }
+QPushButton#successBtn:hover { background-color: #4caf50; color: #ffffff; }
+QPushButton#successBtn:pressed { background-color: #1b5e20; padding: 6px 15px 4px 17px; }
+
+QPushButton#warnBtn    { background-color: #4a2300; color: #ff9800; border-color: #ff9800; }
+QPushButton#warnBtn:hover { background-color: #ff9800; color: #ffffff; }
+QPushButton#warnBtn:pressed { background-color: #e65100; padding: 6px 15px 4px 17px; }
+
+QCheckBox { spacing: 6px; color: #e0e0e6; }
 QCheckBox::indicator {
     width: 16px; height: 16px;
-    border: 2px solid #1565c0;
+    border: 2px solid #dc143c;
     border-radius: 3px;
-    background: #ffffff;
+    background: #16161a;
 }
-QCheckBox::indicator:checked { background-color: #1565c0; }
+QCheckBox::indicator:checked { background-color: #dc143c; }
 
 QLineEdit {
-    background: #ffffff;
-    border: 1px solid #90caf9;
+    background: #16161a;
+    border: 1px solid #3a2533;
     border-radius: 4px;
     padding: 4px 8px;
-    color: #1a2a3a;
+    color: #ffffff;
 }
-QLineEdit:focus { border-color: #1565c0; }
+QLineEdit:focus { border-color: #ff4081; }
 
 QPlainTextEdit, QTextEdit {
-    background: #ffffff;
-    border: 1px solid #90caf9;
+    background: #16161a;             /* Темное поле для кода/дампов */
+    border: 1px solid #3a2533;
     border-radius: 4px;
-    color: #1a2a3a;
+    color: #e0e0e6;
     font-family: "Consolas", "Courier New", monospace;
     font-size: 9pt;
-    selection-background-color: #bbdefb;
+    selection-background-color: #dc143c;
+    selection-color: #ffffff;
 }
-QPlainTextEdit:focus, QTextEdit:focus { border-color: #1565c0; }
+QPlainTextEdit:focus, QTextEdit:focus { border-color: #ff4081; }
 
 QTableWidget {
-    background-color: #ffffff;
-    alternate-background-color: #e8f0fe;
-    gridline-color: #c5d8f7;
-    border: 1px solid #90caf9;
+    background-color: #16161a;
+    alternate-background-color: #1c1c22; /* Чередование строк */
+    gridline-color: #2a2a30;
+    border: 1px solid #3a2533;
     border-radius: 4px;
-    selection-background-color: #bbdefb;
-    selection-color: #0d47a1;
+    selection-background-color: #2a1b24;
+    selection-color: #ff4081;
 }
 QHeaderView::section {
-    background-color: #1565c0;
-    color: #ffffff;
+    background-color: #1a1a1f;
+    color: #ff4081;                  /* Малиновые заголовки таблиц */
     padding: 5px 8px;
     border: none;
-    border-right: 1px solid #1976d2;
+    border-right: 1px solid #2a2a30;
+    border-bottom: 1px solid #3a2533;
     font-weight: bold;
     font-size: 8.5pt;
 }
@@ -122,68 +156,70 @@ QHeaderView::section:last { border-right: none; }
 QTableWidget::item { padding: 2px 6px; }
 
 QTreeWidget {
-    background: #ffffff;
-    border: 1px solid #90caf9;
-    alternate-background-color: #e8f0fe;
+    background: #16161a;
+    border: 1px solid #3a2533;
+    alternate-background-color: #1c1c22;
+    color: #e0e0e6;
 }
-QTreeWidget::item:selected { background: #bbdefb; color: #0d47a1; }
+QTreeWidget::item:selected { background: #2a1b24; color: #ff4081; }
 
-QSplitter::handle { background-color: #90caf9; }
+QSplitter::handle { background-color: #2a2a30; }
 QSplitter::handle:horizontal { width: 3px; }
 QSplitter::handle:vertical   { height: 3px; }
 
 QGroupBox {
-    border: 1px solid #90caf9;
+    border: 1px solid #3a2533;
     border-radius: 5px;
     margin-top: 8px;
     padding-top: 6px;
     font-weight: bold;
-    color: #1565c0;
+    color: #ff4081;                  /* Малиновые рамки групп */
 }
 QGroupBox::title { subcontrol-origin: margin; left: 10px; padding: 0 4px; }
 
-QScrollBar:vertical { background: #e8f0fe; width: 10px; border-radius: 5px; }
-QScrollBar::handle:vertical { background: #90caf9; border-radius: 5px; min-height: 20px; }
-QScrollBar::handle:vertical:hover { background: #1565c0; }
+QScrollBar:vertical { background: #121214; width: 10px; border-radius: 5px; }
+QScrollBar::handle:vertical { background: #3a2533; border-radius: 5px; min-height: 20px; }
+QScrollBar::handle:vertical:hover { background: #dc143c; }
 QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical { height: 0; }
-QScrollBar:horizontal { background: #e8f0fe; height: 10px; border-radius: 5px; }
-QScrollBar::handle:horizontal { background: #90caf9; border-radius: 5px; min-width: 20px; }
-QScrollBar::handle:horizontal:hover { background: #1565c0; }
+QScrollBar:horizontal { background: #121214; height: 10px; border-radius: 5px; }
+QScrollBar::handle:horizontal { background: #3a2533; border-radius: 5px; min-width: 20px; }
+QScrollBar::handle:horizontal:hover { background: #dc143c; }
 QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal { width: 0; }
 
 QStatusBar {
-    background: #1565c0;
-    color: #ffffff;
-    border-top: 1px solid #0d47a1;
+    background: #1a1a1f;
+    color: #a0a0a8;
+    border-top: 1px solid #2a2a30;
     font-size: 8.5pt;
 }
 QStatusBar::item { border: none; }
 
 QComboBox {
-    background: #ffffff;
-    border: 1px solid #90caf9;
+    background: #16161a;
+    border: 1px solid #3a2533;
     border-radius: 4px;
     padding: 4px 8px;
-    color: #1a2a3a;
+    color: #e0e0e6;
 }
 QComboBox::drop-down { border: none; width: 20px; }
 QComboBox QAbstractItemView {
-    background: #ffffff;
-    border: 1px solid #90caf9;
-    selection-background-color: #bbdefb;
+    background: #16161a;
+    border: 1px solid #3a2533;
+    selection-background-color: #2a1b24;
+    selection-color: #ff4081;
 }
 
-QLabel#titleLabel { font-size: 13pt; font-weight: bold; color: #ffffff; }
-QLabel#interceptON  { color: #2e7d32; font-weight: bold; }
-QLabel#interceptOFF { color: #c62828; font-weight: bold; }
+QLabel#titleLabel { font-size: 13pt; font-weight: bold; color: #ff4081; }
+QLabel#interceptON  { color: #4caf50; font-weight: bold; }
+QLabel#interceptOFF { color: #ff5252; font-weight: bold; }
 
 QDockWidget {
     titlebar-close-icon: none;
-    border: 1px solid #90caf9;
+    border: 1px solid #3a2533;
 }
 QDockWidget::title {
-    background: #1565c0;
-    color: #ffffff;
+    background: #1a1a1f;
+    color: #ff4081;
     padding: 5px 8px;
     font-weight: bold;
 }
@@ -332,7 +368,7 @@ void MainWindow::setupTopBar()
 {
     auto *bar = new QWidget(this);
     bar->setFixedHeight(42);
-    bar->setStyleSheet("background-color: #1565c0;");
+    bar->setStyleSheet("background-color: #1a1a1f; border-bottom: 2px solid #dc143c;"); // Черный фон + малиновый нижний бортик
 
     auto *hl = new QHBoxLayout(bar);
     hl->setContentsMargins(12, 4, 12, 4);
@@ -341,15 +377,15 @@ void MainWindow::setupTopBar()
     title->setObjectName("titleLabel");
 
     m_statusLabel = new QLabel(QString("Proxy: 127.0.0.1:%1").arg(8080), bar);
-    m_statusLabel->setStyleSheet("color: #bbdefb; font-size: 9pt;");
+    m_statusLabel->setStyleSheet("color: #a0a0a8; font-size: 9pt;");
 
     m_connCountLabel = new QLabel("Connections: 0", bar);
     m_connCountLabel->setStyleSheet("color: #bbdefb; font-size: 9pt;");
 
     m_interceptStatus = new QLabel("INTERCEPT: OFF", bar);
     m_interceptStatus->setStyleSheet(
-        "color: #ef9a9a; font-weight: bold; font-size: 9pt; "
-        "background:#0d47a1; padding: 3px 10px; border-radius: 3px;");
+        "color: #ff5252; font-weight: bold; font-size: 9pt; "
+        "background:#2a1b24; padding: 3px 10px; border-radius: 3px; border: 1px solid #ff5252;");
 
     auto *spacer = new QWidget(bar);
     spacer->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
@@ -376,7 +412,7 @@ void MainWindow::setupProxyTab()
     // Controls bar
     auto *ctrlBar = new QWidget;
     ctrlBar->setFixedHeight(40);
-    ctrlBar->setStyleSheet("background:#dce8f8; border-radius:5px;");
+    ctrlBar->setStyleSheet("background:#1a1a1f; border: 1px solid #3a2533; border-radius:5px;");
     auto *hl = new QHBoxLayout(ctrlBar);
     hl->setContentsMargins(10, 4, 10, 4);
 
@@ -400,7 +436,7 @@ void MainWindow::setupProxyTab()
     connect(m_sendRepeaterBtn, &QPushButton::clicked, this, &MainWindow::onSendToRepeater);
 
     m_queueLabel = new QLabel("Queue: 0");
-    m_queueLabel->setStyleSheet("color:#1565c0; font-weight:bold; padding: 0 6px;");
+    m_queueLabel->setStyleSheet("color:#ff4081; font-weight:bold; padding: 0 6px;");
 
     auto *filterLbl  = new QLabel("Filter:");
     auto *filterEdit = new QLineEdit;
@@ -509,12 +545,14 @@ void MainWindow::setupRepeaterTab()
 
     auto *topBar = new QWidget;
     topBar->setFixedHeight(40);
-    topBar->setStyleSheet("background:#dce8f8; border-radius:5px;");
+    topBar->setStyleSheet("background:#1a1a1f; border: 1px solid #3a2533; border-radius:5px;");
     auto *hl = new QHBoxLayout(topBar);
     hl->setContentsMargins(10, 4, 10, 4);
 
     auto *hostLbl = new QLabel("Target:");
-    m_targetHost  = new QLineEdit("target.example.com:443");
+    hostLbl->setStyleSheet("color: #ff4081; font-weight: bold;");
+    
+    m_targetHost = new QLineEdit("target.example.com:443");
     m_targetHost->setFixedWidth(280);
 
     m_sslCheck = new QCheckBox("HTTPS");
@@ -575,11 +613,13 @@ void MainWindow::setupLogTab()
 
     auto *ctrlBar = new QWidget;
     ctrlBar->setFixedHeight(40);
-    ctrlBar->setStyleSheet("background:#dce8f8; border-radius:5px;");
+    ctrlBar->setStyleSheet("background:#1a1a1f; border: 1px solid #3a2533; border-radius:5px;");
     auto *hl = new QHBoxLayout(ctrlBar);
     hl->setContentsMargins(10, 4, 10, 4);
 
     auto *searchLbl  = new QLabel("Search:");
+    searchLbl->setStyleSheet("color: #ff4081; font-weight: bold;");
+    
     auto *searchEdit = new QLineEdit;
     searchEdit->setPlaceholderText("filter by host / path / status…");
     searchEdit->setFixedWidth(260);
@@ -618,7 +658,6 @@ void MainWindow::setupLogTab()
     hl->addStretch();
     vl->addWidget(ctrlBar);
 
-    // Vertical split: table / inspector
     auto *vsplit = new QSplitter(Qt::Vertical);
 
     m_logTable = new QTableWidget(0, 7);
@@ -641,7 +680,6 @@ void MainWindow::setupLogTab()
             this, &MainWindow::onLogRowClicked);
     vsplit->addWidget(m_logTable);
 
-    // Packet inspector panel
     auto *inspectorWidget = new QWidget;
     auto *ihl = new QHBoxLayout(inspectorWidget);
     ihl->setContentsMargins(0, 0, 0, 0);
@@ -817,15 +855,26 @@ void MainWindow::onInterceptToggled(bool checked)
     if (checked) {
         m_interceptStatus->setText("INTERCEPT: ON");
         m_interceptStatus->setStyleSheet(
-            "color: #a5d6a7; font-weight: bold; font-size: 9pt; "
-            "background:#0d47a1; padding: 3px 10px; border-radius: 3px;");
-        statusBar()->showMessage("  Intercept enabled – traffic paused");
+            "color: #4caf50; font-weight: bold; font-size: 9pt; "
+            "background:#0b3010; padding: 3px 10px; border-radius: 3px; border: 1px solid #4caf50;");
     } else {
         m_interceptStatus->setText("INTERCEPT: OFF");
         m_interceptStatus->setStyleSheet(
-            "color: #ef9a9a; font-weight: bold; font-size: 9pt; "
-            "background:#0d47a1; padding: 3px 10px; border-radius: 3px;");
-        statusBar()->showMessage("  Intercept disabled – passing traffic");
+            "color: #ff5252; font-weight: bold; font-size: 9pt; "
+            "background:#2a1b24; padding: 3px 10px; border-radius: 3px; border: 1px solid #ff5252;");
+
+        // The server's setIntercept(false) already called releaseIfHeld() on
+        // the active connection and every queued one — they are all forwarded.
+        // Reset the UI to idle: clear the intercept panel and counters.
+        m_pendingConnId  = -1;
+        m_awaitingRespId = -1;
+        m_forwardBtn->setEnabled(false);
+        m_dropBtn->setEnabled(false);
+        m_rawRequest->clear();
+        m_rawResponse->clear();
+        m_rawResponse->setPlaceholderText("Response will appear here after forwarding…");
+        m_queueLabel->setText("Queue: 0");
+        statusBar()->showMessage("  Intercept OFF — all queued requests released");
     }
 }
 
@@ -835,28 +884,34 @@ void MainWindow::onForwardClicked()
 
     QByteArray modified = m_rawRequest->toPlainText().toLatin1();
 
-    // Track forwarded ID to match its response; do NOT overwrite if another
-    // intercept is already pending (the previous await would be lost).
-    // We store the forwarded ID only when we are not already tracking one.
-    if (m_awaitingRespId < 0)
-        m_awaitingRespId = m_pendingConnId;
-    // If m_awaitingRespId is already set, the response for the previous request
-    // will simply be discarded (it won't match m_awaitingRespId for the new one).
-
+    // Always track the most-recently forwarded request so we can display its
+    // response. If a previous response is still in-flight it will simply not
+    // match m_awaitingRespId and be silently ignored in the log/history.
     int forwardedId  = m_pendingConnId;
+    m_awaitingRespId = forwardedId;
     m_pendingConnId  = -1;
 
-    m_server->forwardPendingRequest(modified);
-
-    // Keep the request visible; clear response area and wait
-    m_rawResponse->clear();
-    m_rawResponse->setPlaceholderText("Waiting for response…");
+    // Disable the action buttons now; onRequestIntercepted will re-enable them
+    // immediately if the server promotes a queued request synchronously.
     m_forwardBtn->setEnabled(false);
     m_dropBtn->setEnabled(false);
     m_sendRepeaterBtn->setEnabled(false);
 
-    statusBar()->showMessage(
-        QString("  Request #%1 forwarded — waiting for response…").arg(forwardedId));
+    // Clear response area while we wait
+    m_rawResponse->clear();
+    m_rawResponse->setPlaceholderText("Waiting for response…");
+
+    // This may call promoteNext() → emit requestIntercepted() synchronously,
+    // which will call onRequestIntercepted() and re-enable the buttons before
+    // we return — that is correct and expected.
+    m_server->forwardPendingRequest(modified);
+
+    // If no new request was promoted the status bar shows "waiting"; if one was
+    // promoted onRequestIntercepted() already updated it.
+    if (m_pendingConnId < 0) {
+        statusBar()->showMessage(
+            QString("  Request #%1 forwarded — waiting for response…").arg(forwardedId));
+    }
 }
 
 void MainWindow::onDropClicked()
@@ -1092,9 +1147,15 @@ void MainWindow::onRequestFinished(TrafficRecord record)
         m_rawResponse->setPlainText(record.rawResponse);
         m_awaitingRespId = -1;
 
-        // If no new intercept has taken over the panel yet, re-enable Send to Repeater
-        if (m_pendingConnId < 0)
+        // If a new intercept has already taken over the panel, leave buttons
+        // as onRequestIntercepted set them. Otherwise we are idle — re-enable
+        // "Send to Repeater" so the user can push the response to Repeater.
+        if (m_pendingConnId < 0) {
             m_sendRepeaterBtn->setEnabled(true);
+            // Forward/Drop stay disabled — there is nothing pending to act on.
+            m_forwardBtn->setEnabled(false);
+            m_dropBtn->setEnabled(false);
+        }
 
         statusBar()->showMessage(
             QString("  ✓  Response received  (conn #%1)  %2 bytes  status %3")

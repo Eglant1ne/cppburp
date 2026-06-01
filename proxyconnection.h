@@ -18,13 +18,17 @@ public:
     // Called by ProxyServer when intercept state changes
     void setIntercept(bool on) { m_interceptOn = on; }
 
+    // If this connection is currently held waiting for user action (intercept),
+    // forward it immediately using the original unmodified request bytes.
+    void releaseIfHeld();
+
     int id() const { return m_id; }
 
 public slots:
     // UI actions
     void forwardRequest(const QByteArray &modifiedRequest);
     void dropRequest();
-
+    void dropConnection();
 signals:
     // Emitted when a complete request is intercepted (needs user action)
     void intercepted(int id, QByteArray rawRequest);

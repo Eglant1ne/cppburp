@@ -23,6 +23,23 @@ void ProxyServer::setIntercept(bool on)
     m_intercept = on;
     for (auto *conn : m_connections)
         conn->setIntercept(on);
+
+    if (!on) {
+        // Release the currently active intercepted connection (if any)
+        if (m_activeId >= 0) {
+            auto *conn = m_connections.value(m_activeId, nullptr);
+            if (conn) conn->releaseIfHeld();
+            m_activeId = -1;
+        }
+        // Release every connection waiting in the queue
+        while (!m_interceptQueue.isEmpty()) {
+            auto item = m_interceptQueue.dequeue();
+            auto *conn = m_connections.value(item.connId, nullptr);
+            if (conn) conn->releaseIfHeld();
+        }
+        emit queueChanged(0);
+        emit nextIntercepted(-1, {});
+    }
 }
 
 void ProxyServer::incomingConnection(qintptr handle)

@@ -282,6 +282,29 @@ void ProxyConnection::forwardRequest(const QByteArray &modifiedRequest)
     connectToTarget(m_parsedRequest.host, m_parsedRequest.port, m_parsedRequest.isTls);
 }
 
+void ProxyConnection::releaseIfHeld()
+{
+    // A connection is "held" when intercept fired but the user has not yet
+    // forwarded or dropped it.  m_clientBuffer still holds the original raw
+    // request at that point and no target socket has been created yet.
+    if (m_targetSocket || m_tunnelMode || !m_requestParsed)
+        return;  // already connecting/connected, or nothing parsed yet
+
+    // Forward using the bytes we already have
+    connectToTarget(m_parsedRequest.host, m_parsedRequest.port, m_parsedRequest.isTls);
+}
+
+
+void ProxyConnection::dropConnection()
+{
+    if (m_clientSocket && m_clientSocket->isOpen()) {
+        m_clientSocket->write(
+            "HTTP/1.1 403 Forbidden\r\nContent-Length: 0\r\nConnection: close\r\n\r\n");
+        m_clientSocket->disconnectFromHost();
+    }
+    emit done(m_id);
+    deleteLater();
+}
 void ProxyConnection::dropRequest()
 {
     if (m_clientSocket && m_clientSocket->isOpen()) {
@@ -292,7 +315,6 @@ void ProxyConnection::dropRequest()
     emit done(m_id);
     deleteLater();
 }
-
 void ProxyConnection::startTunnel()
 {
     m_tunnelMode = true;
