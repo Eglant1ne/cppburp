@@ -1,5 +1,8 @@
+// SPDX-License-Identifier: MIT
+// Encoding: UTF-8
 #include "mainwindow.h"
 #include <QApplication>
+#include <stdexcept>
 #include <QDateTime>
 #include <QStringList>
 #include <QHostAddress>
@@ -240,7 +243,12 @@ MainWindow::MainWindow(QWidget *parent)
     QString dbPath = QDir(QStandardPaths::writableLocation(
                               QStandardPaths::AppDataLocation)).filePath("proxylab.sqlite");
     QDir().mkpath(QFileInfo(dbPath).path());
-    m_storage->open(dbPath);
+    try {
+        m_storage->open(dbPath);
+    } catch (const std::exception& ex) {
+        // Non-fatal: the app can run without persistence
+        qWarning("StorageManager: %s", ex.what());
+    }
 
     // ── Proxy server ──
     m_server = new ProxyServer(this);

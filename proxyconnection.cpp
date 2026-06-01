@@ -1,6 +1,9 @@
+// SPDX-License-Identifier: MIT
+// Encoding: UTF-8
 #include "proxyconnection.h"
 #include <QSslSocket>
 #include <QHostAddress>
+#include <stdexcept>
 
 int ProxyConnection::s_idCounter = 0;
 
@@ -43,8 +46,14 @@ void ProxyConnection::onClientData()
 
     // Try to parse HTTP header
     if (!m_requestParsed) {
-        if (!HttpParser::parse(m_clientBuffer, m_parsedRequest))
-            return;  // need more data
+        try {
+            if (!HttpParser::parse(m_clientBuffer, m_parsedRequest))
+                return;  // need more data
+        } catch (const std::invalid_argument& ex) {
+            qWarning("ProxyConnection: bad request — %s", ex.what());
+            dropConnection();
+            return;
+        }
         m_requestParsed = true;
     }
 
@@ -264,12 +273,15 @@ void ProxyConnection::forwardRequest(const QByteArray &modifiedRequest)
     m_clientBuffer = req;
 
     // Re-parse to get up-to-date host/port from the edited request.
-    // NOTE: parse() reads the original URL (still absolute at parse time
-    // since we normalise above); that's fine — host/port extraction works
-    // off the Host header, not the request-line URL.
     HttpRequest parsed;
-    if (HttpParser::parse(req, parsed))
-        m_parsedRequest = parsed;
+    try {
+        if (HttpParser::parse(req, parsed))
+            m_parsedRequest = parsed;
+    } catch (const std::invalid_argument& ex) {
+        qWarning("ProxyConnection::forwardRequest — bad request: %s", ex.what());
+        dropConnection();
+        return;
+    }
 
     // Destroy any previous target socket so we don't leak/double-connect
     if (m_targetSocket) {

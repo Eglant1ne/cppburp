@@ -1,0 +1,27 @@
+PROJECT_NAME           = "ProxyLab"
+PROJECT_NUMBER         = 2.0
+PROJECT_BRIEF          = "HTTP Interception Suite"
+
+OUTPUT_DIRECTORY       = docs
+INPUT                  = .
+FILE_PATTERNS          = *.h *.cpp
+RECURSIVE              = NO
+
+EXTRACT_ALL            = YES
+EXTRACT_PRIVATE        = YES
+EXTRACT_STATIC         = YES
+
+GENERATE_HTML          = YES
+HTML_OUTPUT            = html
+GENERATE_LATEX         = NO
+
+JAVADOC_AUTOBRIEF      = YES
+QT_AUTOBRIEF           = YES
+
+QUIET                  = NO
+WARNINGS               = YES
+
+SORT_MEMBER_DOCS       = NO
+SHOW_INCLUDE_FILES     = YES
+SOURCE_BROWSER         = YES
+INLINE_SOURCES         = NO
