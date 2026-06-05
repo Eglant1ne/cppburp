@@ -74,10 +74,14 @@ void RepeaterClient::doSend()
 
     int connIdx = lowerHdrs.indexOf("\nconnection:");
     if (connIdx >= 0) {
-        connIdx++; 
+        connIdx++;
         int lineEnd = hdrs.indexOf("\r\n", connIdx);
         if (lineEnd >= 0) {
+            // Connection: is a mid-block header — replace up to the \r\n
             hdrs.replace(connIdx, lineEnd - connIdx, "Connection: close");
+        } else {
+            // Connection: is the last header — no trailing \r\n, replace to end
+            hdrs.replace(connIdx, hdrs.size() - connIdx, "Connection: close");
         }
     } else {
         hdrs.append("\r\nConnection: close");
