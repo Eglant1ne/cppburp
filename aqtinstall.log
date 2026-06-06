@@ -1,0 +1,251 @@
+2026-06-05 13:06:37,366 - aqt.main - INFO - installer 13352 aqtinstall(aqt) v3.3.0 on Python 3.13.7 [CPython MSC v.1944 64 bit (AMD64)]
+2026-06-05 13:06:37,367 - aqt.helper - DEBUG - helper 13352 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/Updates.xml.sha256
+2026-06-05 13:06:43,240 - aqt.helper - DEBUG - helper 13352 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/extensions/qtwebengine/680/msvc2022/Updates.xml.sha256
+2026-06-05 13:06:44,183 - aqt.helper - DEBUG - helper 13352 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/extensions/qtwebengine/680/msvc2022/Updates.xml.sha256
+2026-06-05 13:06:45,145 - aqt.helper - DEBUG - helper 13352 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/extensions/qtwebengine/680/msvc2022/Updates.xml.sha256
+2026-06-05 13:06:46,142 - aqt.helper - DEBUG - helper 13352 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/extensions/qtwebengine/680/msvc2022/Updates.xml.sha256
+2026-06-05 13:06:47,077 - aqt.helper - DEBUG - helper 13352 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/extensions/qtwebengine/680/msvc2022/Updates.xml.sha256
+2026-06-05 13:06:48,068 - aqt.helper - DEBUG - helper 13352 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/extensions/qtpdf/680/msvc2022/Updates.xml.sha256
+2026-06-05 13:06:49,013 - aqt.helper - DEBUG - helper 13352 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/extensions/qtpdf/680/msvc2022/Updates.xml.sha256
+2026-06-05 13:06:49,997 - aqt.helper - DEBUG - helper 13352 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/extensions/qtpdf/680/msvc2022/Updates.xml.sha256
+2026-06-05 13:06:50,945 - aqt.helper - DEBUG - helper 13352 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/extensions/qtpdf/680/msvc2022/Updates.xml.sha256
+2026-06-05 13:06:51,864 - aqt.helper - DEBUG - helper 13352 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/extensions/qtpdf/680/msvc2022/Updates.xml.sha256
+2026-06-05 13:06:53,043 - aqt.main - ERROR - installer 13352 The packages ['qt_base'] were not found while parsing XML of package information!
+==============================Suggested follow-up:==============================
+* Please use 'aqt list-qt windows desktop --arch 6.8.0' to show architectures available.
+2026-06-05 13:07:13,550 - aqt.main - INFO - installer 9104 aqtinstall(aqt) v3.3.0 on Python 3.13.7 [CPython MSC v.1944 64 bit (AMD64)]
+2026-06-05 13:07:13,552 - aqt.helper - DEBUG - helper 9104 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/Updates.xml.sha256
+2026-06-05 13:07:15,591 - aqt.helper - DEBUG - helper 9104 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/extensions/qtwebengine/680/msvc2022_64/Updates.xml.sha256
+2026-06-05 13:07:17,456 - aqt.archives - INFO - archives 9104 Found extension qtwebengine
+2026-06-05 13:07:17,457 - aqt.helper - DEBUG - helper 9104 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/extensions/qtpdf/680/msvc2022_64/Updates.xml.sha256
+2026-06-05 13:07:19,264 - aqt.archives - INFO - archives 9104 Found extension qtpdf
+2026-06-05 13:07:20,338 - aqt.helper - DEBUG - helper 10532 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qtbase-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z.sha256
+2026-06-05 13:07:20,340 - aqt.helper - DEBUG - helper 17892 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qttools-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z.sha256
+2026-06-05 13:07:20,341 - aqt.helper - DEBUG - helper 13964 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qtsvg-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z.sha256
+2026-06-05 13:07:20,341 - aqt.helper - DEBUG - helper 6196 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qtdeclarative-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z.sha256
+2026-06-05 13:07:21,637 - aqt.helper - INFO - helper 13964 Downloading qtsvg...
+2026-06-05 13:07:21,637 - aqt.helper - INFO - helper 10532 Downloading qtbase...
+2026-06-05 13:07:21,637 - aqt.helper - INFO - helper 6196 Downloading qtdeclarative...
+2026-06-05 13:07:21,638 - aqt.installer - DEBUG - installer 13964 Download URL: https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qtsvg-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z
+2026-06-05 13:07:21,638 - aqt.installer - DEBUG - installer 10532 Download URL: https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qtbase-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z
+2026-06-05 13:07:21,639 - aqt.installer - DEBUG - installer 17892 Download URL: https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qttools-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z
+2026-06-05 13:07:21,639 - aqt.installer - DEBUG - installer 6196 Download URL: https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qtdeclarative-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z
+2026-06-05 13:07:22,939 - aqt.helper - DEBUG - helper 17892 Asked to redirect(302) to: https://mirror.aarnet.edu.au/pub/qtproject/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qttools-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z
+2026-06-05 13:07:22,939 - aqt.helper - INFO - helper 17892 Redirected: mirror.aarnet.edu.au
+2026-06-05 13:07:22,944 - aqt.helper - DEBUG - helper 10532 Asked to redirect(302) to: https://mirror.aarnet.edu.au/pub/qtproject/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qtbase-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z
+2026-06-05 13:07:22,945 - aqt.helper - INFO - helper 10532 Redirected: mirror.aarnet.edu.au
+2026-06-05 13:07:22,948 - aqt.helper - DEBUG - helper 6196 Asked to redirect(302) to: https://mirror.aarnet.edu.au/pub/qtproject/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qtdeclarative-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z
+2026-06-05 13:07:22,949 - aqt.helper - INFO - helper 6196 Redirected: mirror.aarnet.edu.au
+2026-06-05 13:07:30,053 - aqt.helper - DEBUG - helper 13964 Asked to redirect(302) to: https://mirror.aarnet.edu.au/pub/qtproject/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qtsvg-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z
+2026-06-05 13:07:30,054 - aqt.helper - INFO - helper 13964 Redirected: mirror.aarnet.edu.au
+2026-06-05 13:07:33,243 - aqt.installer - INFO - installer 13964 Finished installation of qtsvg-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z in 12.90797270
+2026-06-05 13:07:33,293 - aqt.helper - DEBUG - helper 13964 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qttranslations-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z.sha256
+2026-06-05 13:07:34,350 - aqt.helper - INFO - helper 13964 Downloading qttranslations...
+2026-06-05 13:07:34,351 - aqt.installer - DEBUG - installer 13964 Download URL: https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qttranslations-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z
+2026-06-05 13:07:35,443 - aqt.helper - DEBUG - helper 13964 Asked to redirect(302) to: https://mirror.aarnet.edu.au/pub/qtproject/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qttranslations-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z
+2026-06-05 13:07:35,443 - aqt.helper - INFO - helper 13964 Redirected: mirror.aarnet.edu.au
+2026-06-05 13:07:37,368 - aqt.helper - DEBUG - helper 10532 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750d3dcompiler_47-x64.7z.sha256
+2026-06-05 13:07:38,623 - aqt.helper - INFO - helper 10532 Downloading d3dcompiler_47...
+2026-06-05 13:07:38,625 - aqt.installer - DEBUG - installer 10532 Download URL: https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750d3dcompiler_47-x64.7z
+2026-06-05 13:07:39,535 - aqt.installer - INFO - installer 13964 Finished installation of qttranslations-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z in 6.25008380
+2026-06-05 13:07:39,578 - aqt.helper - DEBUG - helper 13964 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750opengl32sw-64-mesa_11_2_2-signed_sha256.7z.sha256
+2026-06-05 13:07:39,825 - aqt.helper - DEBUG - helper 10532 Asked to redirect(302) to: https://mirror.aarnet.edu.au/pub/qtproject/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750d3dcompiler_47-x64.7z
+2026-06-05 13:07:39,825 - aqt.helper - INFO - helper 10532 Redirected: mirror.aarnet.edu.au
+2026-06-05 13:07:41,273 - aqt.helper - INFO - helper 13964 Downloading opengl32sw...
+2026-06-05 13:07:41,276 - aqt.installer - DEBUG - installer 13964 Download URL: https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750opengl32sw-64-mesa_11_2_2-signed_sha256.7z
+2026-06-05 13:07:42,571 - aqt.helper - DEBUG - helper 13964 Asked to redirect(302) to: https://mirror.aarnet.edu.au/pub/qtproject/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750opengl32sw-64-mesa_11_2_2-signed_sha256.7z
+2026-06-05 13:07:42,571 - aqt.helper - INFO - helper 13964 Redirected: mirror.aarnet.edu.au
+2026-06-05 13:07:43,412 - aqt.installer - INFO - installer 10532 Finished installation of d3dcompiler_47-x64.7z in 6.05125260
+2026-06-05 13:07:44,530 - aqt.installer - INFO - installer 17892 Finished installation of qttools-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z in 24.19388120
+2026-06-05 13:07:48,090 - aqt.installer - INFO - installer 13964 Finished installation of opengl32sw-64-mesa_11_2_2-signed_sha256.7z in 8.51924540
+2026-06-05 13:07:52,151 - aqt.installer - WARNING - installer 9104 Caught ArchiveDownloadError, terminating installer workers
+2026-06-05 13:07:52,228 - aqt.main - ERROR - installer 9104 Download of 6.8.0-0-202410030750qtbase-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z has error: ("Connection broken: ConnectionResetError(10054, 'Удаленный хост принудительно разорвал существующее подключение', None, 10054, None)", ConnectionResetError(10054, 'Удаленный хост принудительно разорвал существующее подключение', None, 10054, None))
+2026-06-05 13:08:00,642 - aqt.main - INFO - installer 13824 aqtinstall(aqt) v3.3.0 on Python 3.13.7 [CPython MSC v.1944 64 bit (AMD64)]
+2026-06-05 13:08:00,646 - aqt.helper - DEBUG - helper 13824 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/Updates.xml.sha256
+2026-06-05 13:08:24,861 - aqt.helper - DEBUG - helper 13824 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/Updates.xml.sha256
+2026-06-05 13:08:48,935 - aqt.helper - DEBUG - helper 13824 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/Updates.xml.sha256
+2026-06-05 13:09:12,983 - aqt.helper - DEBUG - helper 13824 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/Updates.xml.sha256
+2026-06-05 13:09:32,536 - aqt.main - INFO - installer 512 aqtinstall(aqt) v3.3.0 on Python 3.13.7 [CPython MSC v.1944 64 bit (AMD64)]
+2026-06-05 13:09:32,537 - aqt.helper - DEBUG - helper 512 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/Updates.xml.sha256
+2026-06-05 13:09:38,178 - aqt.helper - DEBUG - helper 512 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/extensions/qtwebengine/680/msvc2022_64/Updates.xml.sha256
+2026-06-05 13:09:40,248 - aqt.archives - INFO - archives 512 Found extension qtwebengine
+2026-06-05 13:09:40,249 - aqt.helper - DEBUG - helper 512 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/extensions/qtpdf/680/msvc2022_64/Updates.xml.sha256
+2026-06-05 13:09:42,759 - aqt.archives - INFO - archives 512 Found extension qtpdf
+2026-06-05 13:09:43,600 - aqt.helper - DEBUG - helper 6656 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qtbase-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z.sha256
+2026-06-05 13:09:43,613 - aqt.helper - DEBUG - helper 17984 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qtsvg-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z.sha256
+2026-06-05 13:09:43,622 - aqt.helper - DEBUG - helper 18120 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qtdeclarative-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z.sha256
+2026-06-05 13:09:43,651 - aqt.helper - DEBUG - helper 3228 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qttools-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z.sha256
+2026-06-05 13:09:45,050 - aqt.helper - INFO - helper 6656 Downloading qtbase...
+2026-06-05 13:09:45,051 - aqt.helper - INFO - helper 3228 Downloading qttools...
+2026-06-05 13:09:45,051 - aqt.helper - INFO - helper 18120 Downloading qtdeclarative...
+2026-06-05 13:09:45,052 - aqt.helper - INFO - helper 17984 Downloading qtsvg...
+2026-06-05 13:09:45,052 - aqt.installer - DEBUG - installer 3228 Download URL: https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qttools-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z
+2026-06-05 13:09:45,052 - aqt.installer - DEBUG - installer 6656 Download URL: https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qtbase-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z
+2026-06-05 13:09:45,052 - aqt.installer - DEBUG - installer 18120 Download URL: https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qtdeclarative-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z
+2026-06-05 13:09:45,052 - aqt.installer - DEBUG - installer 17984 Download URL: https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qtsvg-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z
+2026-06-05 13:09:46,408 - aqt.helper - DEBUG - helper 3228 Asked to redirect(302) to: https://mirror.aarnet.edu.au/pub/qtproject/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qttools-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z
+2026-06-05 13:09:46,408 - aqt.helper - DEBUG - helper 18120 Asked to redirect(302) to: https://mirror.aarnet.edu.au/pub/qtproject/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qtdeclarative-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z
+2026-06-05 13:09:46,408 - aqt.helper - INFO - helper 3228 Redirected: mirror.aarnet.edu.au
+2026-06-05 13:09:46,408 - aqt.helper - INFO - helper 17984 Redirected: mirror.aarnet.edu.au
+2026-06-05 13:09:46,408 - aqt.helper - INFO - helper 18120 Redirected: mirror.aarnet.edu.au
+2026-06-05 13:09:46,408 - aqt.helper - INFO - helper 6656 Redirected: mirror.aarnet.edu.au
+2026-06-05 13:09:49,724 - aqt.installer - INFO - installer 17984 Finished installation of qtsvg-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z in 6.11726690
+2026-06-05 13:09:49,748 - aqt.helper - DEBUG - helper 17984 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qttranslations-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z.sha256
+2026-06-05 13:09:50,752 - aqt.helper - INFO - helper 17984 Downloading qttranslations...
+2026-06-05 13:09:50,752 - aqt.installer - DEBUG - installer 17984 Download URL: https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qttranslations-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z
+2026-06-05 13:09:51,723 - aqt.helper - DEBUG - helper 17984 Asked to redirect(302) to: https://mirror.aarnet.edu.au/pub/qtproject/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qttranslations-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z
+2026-06-05 13:09:51,723 - aqt.helper - INFO - helper 17984 Redirected: mirror.aarnet.edu.au
+2026-06-05 13:09:55,913 - aqt.installer - INFO - installer 17984 Finished installation of qttranslations-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z in 6.17110070
+2026-06-05 13:09:55,934 - aqt.helper - DEBUG - helper 17984 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750d3dcompiler_47-x64.7z.sha256
+2026-06-05 13:09:56,941 - aqt.helper - INFO - helper 17984 Downloading d3dcompiler_47...
+2026-06-05 13:09:56,941 - aqt.installer - DEBUG - installer 17984 Download URL: https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750d3dcompiler_47-x64.7z
+2026-06-05 13:09:57,918 - aqt.helper - DEBUG - helper 17984 Asked to redirect(302) to: https://mirror.aarnet.edu.au/pub/qtproject/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750d3dcompiler_47-x64.7z
+2026-06-05 13:09:57,919 - aqt.helper - INFO - helper 17984 Redirected: mirror.aarnet.edu.au
+2026-06-05 13:09:58,637 - aqt.helper - DEBUG - helper 3228 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750opengl32sw-64-mesa_11_2_2-signed_sha256.7z.sha256
+2026-06-05 13:09:59,681 - aqt.helper - INFO - helper 3228 Downloading opengl32sw...
+2026-06-05 13:09:59,682 - aqt.installer - DEBUG - installer 3228 Download URL: https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750opengl32sw-64-mesa_11_2_2-signed_sha256.7z
+2026-06-05 13:10:00,644 - aqt.helper - DEBUG - helper 3228 Asked to redirect(302) to: https://mirror.aarnet.edu.au/pub/qtproject/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750opengl32sw-64-mesa_11_2_2-signed_sha256.7z
+2026-06-05 13:10:00,645 - aqt.helper - INFO - helper 3228 Redirected: mirror.aarnet.edu.au
+2026-06-05 13:10:01,164 - aqt.installer - INFO - installer 17984 Finished installation of d3dcompiler_47-x64.7z in 5.23400970
+2026-06-05 13:10:05,342 - aqt.installer - INFO - installer 3228 Finished installation of opengl32sw-64-mesa_11_2_2-signed_sha256.7z in 6.71166520
+2026-06-05 13:10:41,378 - aqt.installer - INFO - installer 18120 Finished installation of qtdeclarative-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z in 57.75986320
+2026-06-05 13:10:41,412 - aqt.installer - WARNING - installer 512 Caught ArchiveDownloadError, terminating installer workers
+2026-06-05 13:10:41,443 - aqt.main - ERROR - installer 512 Download of 6.8.0-0-202410030750qttools-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z has error: ("Connection broken: ConnectionResetError(10054, 'Удаленный хост принудительно разорвал существующее подключение', None, 10054, None)", ConnectionResetError(10054, 'Удаленный хост принудительно разорвал существующее подключение', None, 10054, None))
+2026-06-05 13:13:09,005 - aqt.main - INFO - installer 3112 aqtinstall(aqt) v3.3.0 on Python 3.13.7 [CPython MSC v.1944 64 bit (AMD64)]
+2026-06-05 13:13:09,006 - aqt.helper - DEBUG - helper 3112 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/Updates.xml.sha256
+2026-06-05 13:13:33,072 - aqt.helper - DEBUG - helper 3112 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/Updates.xml.sha256
+2026-06-05 13:13:50,614 - aqt.main - INFO - installer 9000 aqtinstall(aqt) v3.3.0 on Python 3.13.7 [CPython MSC v.1944 64 bit (AMD64)]
+2026-06-05 13:13:50,615 - aqt.helper - DEBUG - helper 9000 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/Updates.xml.sha256
+2026-06-05 13:13:52,510 - aqt.main - ERROR - installer 9000 Failed to locate XML data for Qt version '6.8.0'.
+==============================Suggested follow-up:==============================
+* Please use 'aqt list-qt windows desktop' to show versions available.
+2026-06-05 13:14:47,516 - aqt.main - INFO - installer 2612 aqtinstall(aqt) v3.3.0 on Python 3.13.7 [CPython MSC v.1944 64 bit (AMD64)]
+2026-06-05 13:14:47,517 - aqt.helper - DEBUG - helper 2612 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/Updates.xml.sha256
+2026-06-05 13:14:49,593 - aqt.main - INFO - installer 13968 aqtinstall(aqt) v3.3.0 on Python 3.13.7 [CPython MSC v.1944 64 bit (AMD64)]
+2026-06-05 13:14:49,594 - aqt.helper - DEBUG - helper 13968 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/Updates.xml.sha256
+2026-06-05 13:14:51,624 - aqt.helper - DEBUG - helper 13968 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/extensions/qtwebengine/680/msvc2022_64/Updates.xml.sha256
+2026-06-05 13:14:54,203 - aqt.archives - INFO - archives 13968 Found extension qtwebengine
+2026-06-05 13:14:54,204 - aqt.helper - DEBUG - helper 13968 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/extensions/qtpdf/680/msvc2022_64/Updates.xml.sha256
+2026-06-05 13:14:57,412 - aqt.main - INFO - installer 18164 aqtinstall(aqt) v3.3.0 on Python 3.13.7 [CPython MSC v.1944 64 bit (AMD64)]
+2026-06-05 13:14:57,414 - aqt.helper - DEBUG - helper 18164 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/Updates.xml.sha256
+2026-06-05 13:14:59,065 - aqt.main - ERROR - installer 18164 Failed to locate XML data for Qt version '6.8.0'.
+==============================Suggested follow-up:==============================
+* Please use 'aqt list-qt windows desktop' to show versions available.
+2026-06-05 13:15:22,776 - aqt.main - INFO - installer 12992 aqtinstall(aqt) v3.3.0 on Python 3.13.7 [CPython MSC v.1944 64 bit (AMD64)]
+2026-06-05 13:15:22,778 - aqt.helper - DEBUG - helper 12992 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/Updates.xml.sha256
+2026-06-05 13:15:46,856 - aqt.helper - DEBUG - helper 12992 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/Updates.xml.sha256
+2026-06-05 13:16:37,963 - aqt.main - INFO - installer 4272 aqtinstall(aqt) v3.3.0 on Python 3.13.7 [CPython MSC v.1944 64 bit (AMD64)]
+2026-06-05 13:16:37,964 - aqt.helper - DEBUG - helper 4272 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/Updates.xml.sha256
+2026-06-05 13:17:01,349 - aqt.main - INFO - installer 16800 aqtinstall(aqt) v3.3.0 on Python 3.13.7 [CPython MSC v.1944 64 bit (AMD64)]
+2026-06-05 13:17:01,350 - aqt.helper - DEBUG - helper 16800 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/Updates.xml.sha256
+2026-06-05 13:17:03,113 - aqt.main - ERROR - installer 16800 Failed to locate XML data for Qt version '6.8.0'.
+==============================Suggested follow-up:==============================
+* Please use 'aqt list-qt windows desktop' to show versions available.
+2026-06-05 13:18:22,342 - aqt.main - INFO - installer 9000 aqtinstall(aqt) v3.3.0 on Python 3.13.7 [CPython MSC v.1944 64 bit (AMD64)]
+2026-06-05 13:18:22,343 - aqt.helper - DEBUG - helper 9000 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/Updates.xml.sha256
+2026-06-05 13:18:24,272 - aqt.main - ERROR - installer 9000 Failed to locate XML data for Qt version '6.8.0'.
+==============================Suggested follow-up:==============================
+* Please use 'aqt list-qt windows desktop' to show versions available.
+2026-06-05 13:18:36,018 - aqt.main - INFO - installer 10144 aqtinstall(aqt) v3.3.0 on Python 3.13.7 [CPython MSC v.1944 64 bit (AMD64)]
+2026-06-05 13:18:36,018 - aqt.helper - DEBUG - helper 10144 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/Updates.xml.sha256
+2026-06-05 13:18:38,076 - aqt.helper - DEBUG - helper 10144 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/extensions/qtwebengine/680/msvc2022_64/Updates.xml.sha256
+2026-06-05 13:18:40,148 - aqt.archives - INFO - archives 10144 Found extension qtwebengine
+2026-06-05 13:18:40,149 - aqt.helper - DEBUG - helper 10144 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/extensions/qtpdf/680/msvc2022_64/Updates.xml.sha256
+2026-06-05 13:18:42,129 - aqt.archives - INFO - archives 10144 Found extension qtpdf
+2026-06-05 13:18:42,991 - aqt.helper - DEBUG - helper 11164 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qtbase-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z.sha256
+2026-06-05 13:18:42,992 - aqt.helper - DEBUG - helper 18020 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qtsvg-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z.sha256
+2026-06-05 13:18:43,001 - aqt.helper - DEBUG - helper 10060 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qtdeclarative-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z.sha256
+2026-06-05 13:18:43,003 - aqt.helper - DEBUG - helper 10336 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qttools-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z.sha256
+2026-06-05 13:18:44,264 - aqt.helper - INFO - helper 18020 Downloading qtsvg...
+2026-06-05 13:18:44,267 - aqt.helper - INFO - helper 10060 Downloading qtdeclarative...
+2026-06-05 13:18:44,271 - aqt.helper - INFO - helper 10336 Downloading qttools...
+2026-06-05 13:18:44,271 - aqt.helper - INFO - helper 11164 Downloading qtbase...
+2026-06-05 13:18:44,266 - aqt.installer - DEBUG - installer 18020 Download URL: https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qtsvg-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z
+2026-06-05 13:18:44,268 - aqt.installer - DEBUG - installer 10060 Download URL: https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qtdeclarative-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z
+2026-06-05 13:18:44,272 - aqt.installer - DEBUG - installer 10336 Download URL: https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qttools-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z
+2026-06-05 13:18:44,272 - aqt.installer - DEBUG - installer 11164 Download URL: https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qtbase-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z
+2026-06-05 13:18:45,572 - aqt.helper - DEBUG - helper 10336 Asked to redirect(302) to: https://mirror.aarnet.edu.au/pub/qtproject/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qttools-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z
+2026-06-05 13:18:45,572 - aqt.helper - DEBUG - helper 10060 Asked to redirect(302) to: https://mirror.aarnet.edu.au/pub/qtproject/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qtdeclarative-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z
+2026-06-05 13:18:45,572 - aqt.helper - DEBUG - helper 11164 Asked to redirect(302) to: https://mirror.aarnet.edu.au/pub/qtproject/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qtbase-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z
+2026-06-05 13:18:45,572 - aqt.helper - DEBUG - helper 18020 Asked to redirect(302) to: https://mirror.aarnet.edu.au/pub/qtproject/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qtsvg-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z
+2026-06-05 13:18:45,572 - aqt.helper - INFO - helper 10336 Redirected: mirror.aarnet.edu.au
+2026-06-05 13:18:45,572 - aqt.helper - INFO - helper 11164 Redirected: mirror.aarnet.edu.au
+2026-06-05 13:18:45,572 - aqt.helper - INFO - helper 18020 Redirected: mirror.aarnet.edu.au
+2026-06-05 13:18:45,572 - aqt.helper - INFO - helper 10060 Redirected: mirror.aarnet.edu.au
+2026-06-05 13:18:48,920 - aqt.installer - INFO - installer 18020 Finished installation of qtsvg-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z in 5.93327130
+2026-06-05 13:18:48,943 - aqt.helper - DEBUG - helper 18020 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qttranslations-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z.sha256
+2026-06-05 13:18:50,045 - aqt.helper - INFO - helper 18020 Downloading qttranslations...
+2026-06-05 13:18:50,045 - aqt.installer - DEBUG - installer 18020 Download URL: https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qttranslations-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z
+2026-06-05 13:18:51,047 - aqt.helper - DEBUG - helper 18020 Asked to redirect(302) to: https://mirror.aarnet.edu.au/pub/qtproject/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qttranslations-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z
+2026-06-05 13:18:51,048 - aqt.helper - INFO - helper 18020 Redirected: mirror.aarnet.edu.au
+2026-06-05 13:18:54,867 - aqt.installer - INFO - installer 18020 Finished installation of qttranslations-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z in 5.92844790
+2026-06-05 13:18:54,889 - aqt.helper - DEBUG - helper 18020 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750d3dcompiler_47-x64.7z.sha256
+2026-06-05 13:18:55,899 - aqt.helper - INFO - helper 18020 Downloading d3dcompiler_47...
+2026-06-05 13:18:55,899 - aqt.installer - DEBUG - installer 18020 Download URL: https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750d3dcompiler_47-x64.7z
+2026-06-05 13:18:56,913 - aqt.helper - DEBUG - helper 18020 Asked to redirect(302) to: https://mirror.aarnet.edu.au/pub/qtproject/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750d3dcompiler_47-x64.7z
+2026-06-05 13:18:56,913 - aqt.helper - INFO - helper 18020 Redirected: mirror.aarnet.edu.au
+2026-06-05 13:18:58,259 - aqt.helper - DEBUG - helper 10336 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750opengl32sw-64-mesa_11_2_2-signed_sha256.7z.sha256
+2026-06-05 13:18:59,216 - aqt.helper - INFO - helper 10336 Downloading opengl32sw...
+2026-06-05 13:18:59,216 - aqt.installer - DEBUG - installer 10336 Download URL: https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750opengl32sw-64-mesa_11_2_2-signed_sha256.7z
+2026-06-05 13:19:00,164 - aqt.helper - DEBUG - helper 10336 Asked to redirect(302) to: https://mirror.aarnet.edu.au/pub/qtproject/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750opengl32sw-64-mesa_11_2_2-signed_sha256.7z
+2026-06-05 13:19:00,165 - aqt.helper - INFO - helper 10336 Redirected: mirror.aarnet.edu.au
+2026-06-05 13:19:00,175 - aqt.installer - INFO - installer 18020 Finished installation of d3dcompiler_47-x64.7z in 5.28974420
+2026-06-05 13:19:04,457 - aqt.installer - INFO - installer 10336 Finished installation of opengl32sw-64-mesa_11_2_2-signed_sha256.7z in 6.20293300
+2026-06-05 13:19:09,262 - aqt.installer - WARNING - installer 10144 Caught ArchiveDownloadError, terminating installer workers
+2026-06-05 13:19:09,317 - aqt.main - ERROR - installer 10144 Download of 6.8.0-0-202410030750qttools-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z has error: ("Connection broken: ConnectionResetError(10054, 'Удаленный хост принудительно разорвал существующее подключение', None, 10054, None)", ConnectionResetError(10054, 'Удаленный хост принудительно разорвал существующее подключение', None, 10054, None))
+2026-06-05 13:19:25,638 - aqt.main - INFO - installer 15168 aqtinstall(aqt) v3.3.0 on Python 3.13.7 [CPython MSC v.1944 64 bit (AMD64)]
+2026-06-05 13:19:25,640 - aqt.helper - DEBUG - helper 15168 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/Updates.xml.sha256
+2026-06-05 13:20:06,872 - aqt.main - INFO - installer 16752 aqtinstall(aqt) v3.3.0 on Python 3.13.7 [CPython MSC v.1944 64 bit (AMD64)]
+2026-06-05 13:20:06,873 - aqt.helper - DEBUG - helper 16752 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/Updates.xml.sha256
+2026-06-05 13:20:31,677 - aqt.main - INFO - installer 17748 aqtinstall(aqt) v3.3.0 on Python 3.13.7 [CPython MSC v.1944 64 bit (AMD64)]
+2026-06-05 13:20:31,678 - aqt.helper - DEBUG - helper 17748 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/Updates.xml.sha256
+2026-06-05 13:20:33,621 - aqt.helper - DEBUG - helper 17748 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/extensions/qtwebengine/680/msvc2022_64/Updates.xml.sha256
+2026-06-05 13:20:43,028 - aqt.main - INFO - installer 17008 aqtinstall(aqt) v3.3.0 on Python 3.13.7 [CPython MSC v.1944 64 bit (AMD64)]
+2026-06-05 13:20:43,029 - aqt.helper - DEBUG - helper 17008 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/Updates.xml.sha256
+2026-06-05 13:39:48,057 - aqt.main - INFO - installer 5680 aqtinstall(aqt) v3.3.0 on Python 3.13.7 [CPython MSC v.1944 64 bit (AMD64)]
+2026-06-05 13:39:48,058 - aqt.helper - DEBUG - helper 5680 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/Updates.xml.sha256
+2026-06-05 13:39:50,411 - aqt.helper - DEBUG - helper 5680 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/extensions/qtwebengine/680/msvc2022_64/Updates.xml.sha256
+2026-06-05 13:39:52,751 - aqt.archives - INFO - archives 5680 Found extension qtwebengine
+2026-06-05 13:39:52,751 - aqt.helper - DEBUG - helper 5680 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/extensions/qtpdf/680/msvc2022_64/Updates.xml.sha256
+2026-06-05 13:39:54,942 - aqt.archives - INFO - archives 5680 Found extension qtpdf
+2026-06-05 13:39:56,233 - aqt.helper - DEBUG - helper 16944 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qtbase-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z.sha256
+2026-06-05 13:39:56,242 - aqt.helper - DEBUG - helper 11436 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qtsvg-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z.sha256
+2026-06-05 13:39:56,251 - aqt.helper - DEBUG - helper 1800 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qtdeclarative-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z.sha256
+2026-06-05 13:39:56,318 - aqt.helper - DEBUG - helper 13700 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qttools-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z.sha256
+2026-06-05 13:39:57,624 - aqt.helper - INFO - helper 16944 Downloading qtbase...
+2026-06-05 13:39:57,625 - aqt.installer - DEBUG - installer 16944 Download URL: https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qtbase-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z
+2026-06-05 13:39:57,641 - aqt.helper - INFO - helper 11436 Downloading qtsvg...
+2026-06-05 13:39:57,641 - aqt.installer - DEBUG - installer 11436 Download URL: https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qtsvg-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z
+2026-06-05 13:39:57,746 - aqt.helper - INFO - helper 1800 Downloading qtdeclarative...
+2026-06-05 13:39:57,746 - aqt.installer - DEBUG - installer 1800 Download URL: https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qtdeclarative-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z
+2026-06-05 13:39:57,811 - aqt.helper - INFO - helper 13700 Downloading qttools...
+2026-06-05 13:39:57,812 - aqt.installer - DEBUG - installer 13700 Download URL: https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qttools-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z
+2026-06-05 13:39:58,933 - aqt.helper - DEBUG - helper 16944 Asked to redirect(302) to: https://mirror.aarnet.edu.au/pub/qtproject/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qtbase-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z
+2026-06-05 13:39:58,933 - aqt.helper - INFO - helper 16944 Redirected: mirror.aarnet.edu.au
+2026-06-05 13:39:58,953 - aqt.helper - DEBUG - helper 11436 Asked to redirect(302) to: https://mirror.aarnet.edu.au/pub/qtproject/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qtsvg-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z
+2026-06-05 13:39:58,953 - aqt.helper - INFO - helper 11436 Redirected: mirror.aarnet.edu.au
+2026-06-05 13:39:59,016 - aqt.helper - DEBUG - helper 1800 Asked to redirect(302) to: https://mirror.aarnet.edu.au/pub/qtproject/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qtdeclarative-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z
+2026-06-05 13:39:59,016 - aqt.helper - INFO - helper 1800 Redirected: mirror.aarnet.edu.au
+2026-06-05 13:39:59,220 - aqt.helper - DEBUG - helper 13700 Asked to redirect(302) to: https://mirror.aarnet.edu.au/pub/qtproject/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qttools-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z
+2026-06-05 13:39:59,221 - aqt.helper - INFO - helper 13700 Redirected: mirror.aarnet.edu.au
+2026-06-05 13:40:02,340 - aqt.installer - INFO - installer 11436 Finished installation of qtsvg-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z in 6.10405500
+2026-06-05 13:40:02,364 - aqt.helper - DEBUG - helper 11436 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qttranslations-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z.sha256
+2026-06-05 13:40:03,510 - aqt.helper - INFO - helper 11436 Downloading qttranslations...
+2026-06-05 13:40:03,511 - aqt.installer - DEBUG - installer 11436 Download URL: https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qttranslations-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z
+2026-06-05 13:40:04,664 - aqt.helper - DEBUG - helper 11436 Asked to redirect(302) to: https://mirror.aarnet.edu.au/pub/qtproject/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750qttranslations-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z
+2026-06-05 13:40:04,664 - aqt.helper - INFO - helper 11436 Redirected: mirror.aarnet.edu.au
+2026-06-05 13:40:08,770 - aqt.installer - INFO - installer 11436 Finished installation of qttranslations-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z in 6.40961070
+2026-06-05 13:40:08,793 - aqt.helper - DEBUG - helper 11436 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750d3dcompiler_47-x64.7z.sha256
+2026-06-05 13:40:09,943 - aqt.helper - INFO - helper 11436 Downloading d3dcompiler_47...
+2026-06-05 13:40:09,944 - aqt.installer - DEBUG - installer 11436 Download URL: https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750d3dcompiler_47-x64.7z
+2026-06-05 13:40:10,767 - aqt.helper - DEBUG - helper 13700 Attempt to download checksum at https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750opengl32sw-64-mesa_11_2_2-signed_sha256.7z.sha256
+2026-06-05 13:40:11,935 - aqt.helper - INFO - helper 13700 Downloading opengl32sw...
+2026-06-05 13:40:11,935 - aqt.installer - DEBUG - installer 13700 Download URL: https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750opengl32sw-64-mesa_11_2_2-signed_sha256.7z
+2026-06-05 13:40:13,074 - aqt.helper - DEBUG - helper 13700 Asked to redirect(302) to: https://mirror.aarnet.edu.au/pub/qtproject/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750opengl32sw-64-mesa_11_2_2-signed_sha256.7z
+2026-06-05 13:40:13,074 - aqt.helper - INFO - helper 13700 Redirected: mirror.aarnet.edu.au
+2026-06-05 13:40:14,770 - aqt.helper - DEBUG - helper 11436 Asked to redirect(302) to: https://mirror.aarnet.edu.au/pub/qtproject/online/qtsdkrepository/windows_x86/desktop/qt6_680/qt6_680/qt.qt6.680.win64_msvc2022_64/6.8.0-0-202410030750d3dcompiler_47-x64.7z
+2026-06-05 13:40:14,770 - aqt.helper - INFO - helper 11436 Redirected: mirror.aarnet.edu.au
+2026-06-05 13:40:18,262 - aqt.installer - INFO - installer 11436 Finished installation of d3dcompiler_47-x64.7z in 9.47316730
+2026-06-05 13:40:18,439 - aqt.installer - INFO - installer 13700 Finished installation of opengl32sw-64-mesa_11_2_2-signed_sha256.7z in 7.68234940
+2026-06-05 13:40:25,368 - aqt.installer - WARNING - installer 5680 Caught ArchiveDownloadError, terminating installer workers
+2026-06-05 13:40:25,436 - aqt.main - ERROR - installer 5680 Download of 6.8.0-0-202410030750qttools-Windows-Windows_11_23H2-MSVC2022-Windows-Windows_11_23H2-X86_64.7z has error: ("Connection broken: ConnectionResetError(10054, 'Удаленный хост принудительно разорвал существующее подключение', None, 10054, None)", ConnectionResetError(10054, 'Удаленный хост принудительно разорвал существующее подключение', None, 10054, None))

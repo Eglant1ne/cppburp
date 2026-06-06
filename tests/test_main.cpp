@@ -38,8 +38,6 @@ void expectFalse(bool c, const char *n) { expectEq(c, false, n); }
 #define EXPECT_TRUE(c, n)    expectTrue((c), (n))
 #define EXPECT_FALSE(c, n)   expectFalse((c), (n))
 
-// ─── Copy of static normalizeRequest from proxyconnection.cpp ───────────────
-// The function is declared static there, so we test a local copy.
 
 static QByteArray normalizeRequest(const QByteArray &raw)
 {
@@ -73,10 +71,6 @@ static QByteArray normalizeRequest(const QByteArray &raw)
 
     QByteArray lowerHdrs = hdrs.toLower();
 
-    // Enforce Connection: close
-    // KNOWN BUG: if Connection is the last header, hdrs.left(blankIdx) has no
-    // trailing \r\n, so indexOf("\r\n", connIdx) returns -1 and the replace is
-    // skipped by the (lineEnd >= 0) guard — "close" is never written.
     int connIdx = lowerHdrs.indexOf("\nconnection:");
     if (connIdx >= 0) {
         connIdx++;
